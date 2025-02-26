@@ -26,9 +26,8 @@ const Navbar = () => {
           }`}
         >
           <Link onClick={handleShow} href="/landscape-maintenance">Landscape Maintenance</Link>
-          <Link onClick={handleShow} href="/landscape-design">Landscape Design</Link>
-          <Link onClick={handleShow} href="/lawn-care">Lawn Care</Link>
-          <Link onClick={handleShow} href="/tree-care">Tree Care</Link>
+          <Link onClick={handleShow} href="/lawn-care-services">Lawn Care</Link>
+          <Link onClick={handleShow} href="/tree-care-services">Tree Care</Link>
           <Link onClick={handleShow} href="/about-us">About Us</Link>
           <div className="hidden lg:flex space-x-3">
             <Link href="/choose-your-lesson">

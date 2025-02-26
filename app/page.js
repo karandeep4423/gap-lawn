@@ -1,5 +1,13 @@
 "use client";
 import Image from "next/image";
+import {
+  SparklesIcon,
+  UserIcon,
+  StarIcon,
+  FolderIcon,
+  CurrencyDollarIcon,
+  CheckBadgeIcon,
+} from "@heroicons/react/24/outline";
 export default function HomePage() {
   return (
     <>
@@ -14,11 +22,15 @@ export default function HomePage() {
         <div className="bg-black bg-opacity-50">
           <div className="container mx-auto px-4 py-24 text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-white">
-              Your Outdoor Living Areas, the Place to Be
+              Welcome to GAP Landscaping
             </h1>
             <p className="mt-6 text-xl text-white max-w-2xl mx-auto">
-              Get the backyard oasis and head-turning curb appeal you’ve always
-              wanted.
+              Your Trusted Partner for Lawn Care & Landscaping Excellence. At
+              GAP Landscaping, we’re more than just a landscaping service we’re
+              your partner in creating beautiful, healthy, and sustainable
+              outdoor spaces. With years of experience in both lawn care and
+              landscaping, we pride ourselves on providing exceptional service
+              and expert care that transforms your yard into a stunning oasis.
             </p>
             <button className="mt-8 px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full text-lg">
               Get Started
@@ -29,7 +41,9 @@ export default function HomePage() {
 
       {/* Services Section */}
       <section id="services" className="container mx-auto px-4 py-16">
-        <h2 className="text-5xl font-bold text-center">Our <span className="text-green-600">Services</span></h2>
+        <h2 className="text-5xl font-bold text-center">
+          Our <span className="text-green-600">Services</span>
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           <div className="border-2 flex flex-col justify-center items-center border-gray-200 p-8 rounded-2xl">
             <Image
@@ -95,33 +109,109 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section id="about" className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Why Green Ackors Landscaping & Irrigation?
+      <div className="bg-gray-100 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Heading */}
+          <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-8">
+            Why <span className="text-green-600">Choose</span> GAP Landscaping?
           </h2>
-          <p className="mb-6 max-w-3xl mx-auto">
-            Be confident. Be proud. We know there are many options when hiring a
-            lawn care, landscaping, or irrigation service in Waco, China
-            Springs, or Woodway, TX. When you trust a professional, they should
-            consistently come through for you. Whether you have big ambitions
-            for a property transformation or just need to stop worrying about
-            routine maintenance, we want you to make a confident decision that
-            brings you peace of mind.
-          </p>
-          <p className="max-w-3xl mx-auto">
-            Since 2001, we’ve been helping people just like you. Other companies
-            call them customers. We often call them our friends. They’re the
-            proud homeowners who love spending time outdoors with their families
-            and friends. They’re the confident property managers who know we
-            have their back.
-          </p>
+
+          {/* Grid Layout for Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Card 1: Expert Care */}
+            <div className="bg-white flex flex-col items-center justify-center p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <SparklesIcon className="h-20 w-20 text-green-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Expert Care for Every Lawn & Landscape
+              </h3>
+              <p className="text-gray-600">
+                With a team of skilled professionals, we treat your yard with
+                the same care and attention we would our own. From lush green
+                lawns to vibrant flower beds, we have the expertise to maintain
+                and improve every aspect of your outdoor space.
+              </p>
+            </div>
+
+            {/* Card 2: Personalized Services */}
+            <div className="bg-white  flex flex-col items-center justify-center  p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <UserIcon className="h-20 w-20 text-green-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Personalized Services
+              </h3>
+              <p className="text-gray-600">
+                We understand that every property is unique. That’s why we offer
+                personalized services tailored to your specific needs. Whether
+                it’s a one-time cleanup or an ongoing maintenance plan, we work
+                with you to create a customized solution that fits your budget
+                and vision.
+              </p>
+            </div>
+
+            {/* Card 3: Quality */}
+            <div className="bg-white  flex flex-col items-center justify-center  p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <StarIcon className="h-20 w-20 text-green-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Quality That Speaks for Itself
+              </h3>
+              <p className="text-gray-600">
+                At GAP Landscaping, quality is at the heart of everything we do.
+                We use only the best tools, equipment, and eco-friendly products
+                to ensure that your lawn, garden, and trees receive the highest
+                level of care. Our attention to detail and commitment to
+                excellence means you’ll always get the best results.
+              </p>
+            </div>
+
+            {/* Card 4: Comprehensive Services */}
+            <div className="bg-white  flex flex-col items-center justify-center  p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <FolderIcon className="h-20 w-20 text-green-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Comprehensive Lawn & Landscaping Services
+              </h3>
+              <p className="text-gray-600">
+                We don’t just mow lawns – we provide a full range of services to
+                care for every aspect of your yard. From tree trimming and
+                removal to landscape design, flower bed installation, and
+                irrigation systems, we offer comprehensive solutions to make
+                your outdoor space flourish.
+              </p>
+            </div>
+
+            {/* Card 5: Affordable Pricing */}
+            <div className="bg-white  flex flex-col items-center justify-center  p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <CurrencyDollarIcon className="h-20 w-20 text-green-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Affordable, Transparent Pricing
+              </h3>
+              <p className="text-gray-600">
+                We believe that quality landscaping shouldn’t come with a hefty
+                price tag. That’s why we offer competitive pricing and
+                transparent quotes, so you always know exactly what to expect.
+                No hidden fees, no surprises—just exceptional service at a price
+                you can afford.
+              </p>
+            </div>
+
+            {/* Card 6: Satisfaction Guaranteed */}
+            <div className="bg-white  flex flex-col items-center justify-center  p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <CheckBadgeIcon className="h-20 w-20 text-green-600 mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Satisfaction Guaranteed
+              </h3>
+              <p className="text-gray-600">
+                Your satisfaction is our top priority. If you’re not happy with
+                the results, we’ll make it right. Our team is committed to
+                providing outstanding customer service and ensuring that your
+                landscaping experience is nothing short of exceptional.
+              </p>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Clients Section */}
       <section className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <h2 className="text-3xl font-bold">
             Our Landscaping & Lawn Care Services Help These People
           </h2>
@@ -171,7 +261,7 @@ export default function HomePage() {
             <div className="p-4 flex flex-col items-center justify-center">
               <Image
                 src="/request.svg"
-                alt="Request a Consultation"  
+                alt="Request a Consultation"
                 width={100}
                 height={100}
                 className="w-20 h-20"
@@ -203,7 +293,7 @@ export default function HomePage() {
             </div>
             <div className="p-4 flex flex-col items-center justify-center">
               <Image
-                src="/solution.svg"  
+                src="/solution.svg"
                 alt="Customized Solution"
                 width={100}
                 height={100}
@@ -230,17 +320,35 @@ export default function HomePage() {
           </h2>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
             <div className="flex flex-col items-center">
-              <Image src="/smile.svg" alt="Testimonial 1" width={100} height={100} className="rounded-full" />
+              <Image
+                src="/smile.svg"
+                alt="Testimonial 1"
+                width={100}
+                height={100}
+                className="rounded-full"
+              />
               <p className="text-4xl font-bold">340</p>
               <p>HAPPY CUSTOMERS</p>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/star.svg" alt="Testimonial 2" width={100} height={100} className="rounded-full" />
+              <Image
+                src="/star.svg"
+                alt="Testimonial 2"
+                width={100}
+                height={100}
+                className="rounded-full"
+              />
               <p className="text-4xl font-bold">74</p>
               <p>5-STAR GOOGLE REVIEWS</p>
             </div>
             <div className="flex flex-col items-center">
-              <Image src="/clock.svg" alt="Testimonial 3" width={100} height={100} className="rounded-full" />
+              <Image
+                src="/clock.svg"
+                alt="Testimonial 3"
+                width={100}
+                height={100}
+                className="rounded-full"
+              />
               <p className="text-4xl font-bold">24</p>
               <p>YEARS OF SERVICE</p>
             </div>
