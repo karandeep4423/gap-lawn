@@ -8,6 +8,7 @@ import {
   CurrencyDollarIcon,
   CheckBadgeIcon,
 } from "@heroicons/react/24/outline";
+
 export default function HomePage() {
   return (
     <>
