@@ -50,7 +50,7 @@ export async function POST(request) {
     // Email content
     const mailOptions = {
       from: `"GAP Landscaping Website" <${SMTP_USER}>`,
-      to: ADMIN_EMAIL,
+      to: [ADMIN_EMAIL, 'gap.landscaping5@gmail.com'],
       subject: 'New Contact Form Submission - GAP Landscaping',
       text: `You have received a new contact form submission from the GAP Landscaping website.
 
