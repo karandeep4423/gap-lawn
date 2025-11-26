@@ -23,10 +23,10 @@ export default function GAPLandingPage() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -35,8 +35,10 @@ export default function GAPLandingPage() {
 
       if (response.ok) {
         setSubmitStatus({
-          type: 'success',
-          message: data.message || "Thank you! We'll contact you within 15 minutes during business hours."
+          type: "success",
+          message:
+            data.message ||
+            "Thank you! We'll contact you within 15 minutes during business hours.",
         });
         // Reset form
         setFormData({
@@ -47,15 +49,18 @@ export default function GAPLandingPage() {
         });
       } else {
         setSubmitStatus({
-          type: 'error',
-          message: data.error || 'Something went wrong. Please try calling us directly.'
+          type: "error",
+          message:
+            data.error ||
+            "Something went wrong. Please try calling us directly.",
         });
       }
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error("Form submission error:", error);
       setSubmitStatus({
-        type: 'error',
-        message: 'Network error. Please check your connection or call us directly.'
+        type: "error",
+        message:
+          "Network error. Please check your connection or call us directly.",
       });
     } finally {
       setIsSubmitting(false);
@@ -76,8 +81,12 @@ export default function GAPLandingPage() {
               GAP
             </div>
             <div>
-              <h1 className="text-lg font-bold text-gray-900">GAP Landscaping & Irrigation</h1>
-              <p className="text-xs text-gray-600">Licensed • Insured • Trusted</p>
+              <h1 className="text-lg font-bold text-gray-900">
+                GAP Landscaping & Irrigation
+              </h1>
+              <p className="text-xs text-gray-600">
+                Licensed  • Trusted
+              </p>
             </div>
           </div>
           <a
@@ -107,8 +116,13 @@ export default function GAPLandingPage() {
                 <div className="flex items-center gap-3 mb-4">
                   <Phone className="text-green-600" size={24} />
                   <div>
-                    <p className="font-semibold text-gray-900">Call or Text Now:</p>
-                    <a href={`tel:${phone.replace(/[^0-9+]/g, "")}`} className="text-2xl font-bold text-green-600 hover:text-green-700">
+                    <p className="font-semibold text-gray-900">
+                      Call or Text Now:
+                    </p>
+                    <a
+                      href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+                      className="text-2xl font-bold text-green-600 hover:text-green-700"
+                    >
                       {phone}
                     </a>
                   </div>
@@ -131,12 +145,22 @@ export default function GAPLandingPage() {
 
               <div className="space-y-3 mb-8">
                 <p className="text-lg text-gray-700">
-                  Imagine stepping outside every morning to a perfect, green, and well-irrigated yard. 
-                  At GAP Landscaping, we design and maintain landscapes that don't just look great — they feel great.
+                  Imagine stepping outside every morning to a perfect, green,
+                  and well-irrigated yard. At GAP Landscaping, we design and
+                  maintain landscapes that don't just look great — they feel
+                  great.
                 </p>
                 <p className="text-gray-700">
-                  We bring <span className="font-semibold">30+ years of combined experience</span>, TSTC-certified technicians, 
-                  and Texas-tested irrigation expertise right to your doorstep.
+                  We bring{" "}
+                  <span className="font-semibold">
+                    30+ years of combined experience
+                  </span>
+                  , TCEQ licensed irrigator, graduate of Texas State Technical
+                  College (Golf Course Turfgrass Management) specialized skills
+                  include knowledge or various types of turf grass and there
+                  uses, horticulture arboriculture (tree Care) landscape
+                  maintenance and design, irrigation maintenance, upgrade and
+                  leak repairs.
                 </p>
               </div>
 
@@ -150,8 +174,12 @@ export default function GAPLandingPage() {
 
             {/* Right Form */}
             <div className="bg-white rounded-xl shadow-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Your Free Estimate</h3>
-              <p className="text-gray-600 mb-6">No obligation — just helpful advice and a clear quote.</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Get Your Free Estimate
+              </h3>
+              <p className="text-gray-600 mb-6">
+                No obligation — just helpful advice and a clear quote.
+              </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <input
@@ -198,15 +226,17 @@ export default function GAPLandingPage() {
                   disabled={isSubmitting}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
                 />
-                
+
                 {submitStatus.type && (
-                  <div className={`p-4 rounded-lg ${
-                    submitStatus.type === 'success' 
-                      ? 'bg-green-50 border border-green-200 text-green-800' 
-                      : 'bg-red-50 border border-red-200 text-red-800'
-                  }`}>
+                  <div
+                    className={`p-4 rounded-lg ${
+                      submitStatus.type === "success"
+                        ? "bg-green-50 border border-green-200 text-green-800"
+                        : "bg-red-50 border border-red-200 text-red-800"
+                    }`}
+                  >
                     <p className="flex items-center gap-2">
-                      {submitStatus.type === 'success' ? (
+                      {submitStatus.type === "success" ? (
                         <Check size={20} className="text-green-600" />
                       ) : (
                         <span className="text-red-600 font-bold">⚠</span>
@@ -215,7 +245,7 @@ export default function GAPLandingPage() {
                     </p>
                   </div>
                 )}
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -223,9 +253,25 @@ export default function GAPLandingPage() {
                 >
                   {isSubmitting ? (
                     <>
-                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
                       </svg>
                       <span>Sending...</span>
                     </>
@@ -244,7 +290,9 @@ export default function GAPLandingPage() {
                   <Phone size={20} />
                   {phone}
                 </a>
-                <p className="text-xs text-gray-500 mt-2">We respond within 15 minutes during business hours</p>
+                <p className="text-xs text-gray-500 mt-2">
+                  We respond within 15 minutes during business hours
+                </p>
               </div>
             </div>
           </div>
@@ -254,9 +302,12 @@ export default function GAPLandingPage() {
       {/* Services Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl font-bold text-gray-900 text-center mb-4">Our Most Popular Services</h3>
+          <h3 className="text-3xl font-bold text-gray-900 text-center mb-4">
+            Our Most Popular Services
+          </h3>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Professional landscaping solutions tailored to Texas homes and businesses
+            Professional landscaping solutions tailored to Texas homes and
+            businesses
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -286,31 +337,72 @@ export default function GAPLandingPage() {
                 desc: "Beautiful green lawn in just one day.",
               },
             ].map((service, idx) => (
-              <div key={idx} className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+              <div
+                key={idx}
+                className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow"
+              >
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <Check className="text-green-600" size={24} />
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h4>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  {service.title}
+                </h4>
                 <p className="text-gray-600">{service.desc}</p>
               </div>
             ))}
           </div>
+          <br/>
+          <span className="text-xs mt-3">
+            Darrell Harvey LI0014889, This company performs irrigation services in compliance with Texas
+            Commission on Environmental Quality (TCEQ) regulations under 30 TAC
+            Chapter 344. Any irrigation work that requires a TCEQ-licensed
+            irrigator is performed by or under the supervision of a licensed
+            irrigator as required by Texas law. For questions or to report a
+            violation regarding irrigator licensing, you may contact TCEQ at
+            512-239-LAWN (512-239-5296).
+          </span>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-16 bg-gradient-to-br from-green-600 to-green-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl font-bold text-center mb-12">Why Homeowners Choose GAP Landscaping</h3>
+          <h3 className="text-3xl font-bold text-center mb-12">
+            Why Homeowners Choose GAP Landscaping
+          </h3>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
-              { icon: "✅", title: "Guaranteed Results", desc: "We don't leave until you love it." },
-              { icon: "💰", title: "Affordable Pricing", desc: "Clear quotes, no hidden fees." },
-              { icon: "🛡️", title: "Licensed & Insured", desc: "Professional service you can trust." },
-              { icon: "⭐", title: "Locally Trusted", desc: "Serving Texas families for 30+ years." },
-              { icon: "⚡", title: "Fast Response", desc: "Same-day or next-day estimates available." },
-              { icon: "🏆", title: "Expert Technicians", desc: "TSTC-certified and experienced." },
+              {
+                icon: "✅",
+                title: "Guaranteed Results",
+                desc: "We don't leave until you love it.",
+              },
+              {
+                icon: "💰",
+                title: "Affordable Pricing",
+                desc: "Clear quotes, no hidden fees.",
+              },
+              {
+                icon: "🛡️",
+                title: "Licensed",
+                desc: "Professional service you can trust.",
+              },
+              {
+                icon: "⭐",
+                title: "Locally Trusted",
+                desc: "Serving Texas families for 30+ years.",
+              },
+              {
+                icon: "⚡",
+                title: "Fast Response",
+                desc: "Same-day or next-day estimates available.",
+              },
+              {
+                icon: "🏆",
+                title: "Expert Technicians",
+                desc: "Certified and experienced.",
+              },
             ].map((feature, idx) => (
               <div key={idx} className="flex items-start gap-4">
                 <div className="text-4xl">{feature.icon}</div>
@@ -323,32 +415,49 @@ export default function GAPLandingPage() {
           </div>
 
           {/* Testimonial */}
-          <div className="bg-white text-gray-900 rounded-xl p-8 max-w-3xl mx-auto shadow-xl">
+          {/* <div className="bg-white text-gray-900 rounded-xl p-8 max-w-3xl mx-auto shadow-xl">
             <div className="flex gap-1 mb-4">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-yellow-400 text-2xl">★</span>
+                <span key={i} className="text-yellow-400 text-2xl">
+                  ★
+                </span>
               ))}
             </div>
             <p className="text-xl italic mb-4">
-              "They transformed my lawn in just two days — professional, honest, and affordable!"
+              "They transformed my lawn in just two days — professional, honest,
+              and affordable!"
             </p>
             <p className="font-semibold">— J. Martinez, Hillsboro TX</p>
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Before & After */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Before & After</h3>
+          {/* <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
+            Before & After
+          </h3> */}
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "From Dry to Dream Lawn", desc: "Complete irrigation system installation" },
-              { title: "Water-Saving Irrigation Upgrade", desc: "Smart sprinkler system with zone control" },
-              { title: "Complete Front Yard Makeover", desc: "Landscaping design with stonework and sod" },
+              {
+                title: "From Dry to Dream Lawn",
+                desc: "Complete irrigation system installation",
+              },
+              {
+                title: "Water-Saving Irrigation Upgrade",
+                desc: "Smart sprinkler system with zone control",
+              },
+              {
+                title: "Complete Front Yard Makeover",
+                desc: "Landscaping design with stonework and sod",
+              },
             ].map((project, idx) => (
-              <div key={idx} className="bg-white rounded-lg overflow-hidden shadow-lg">
+              <div
+                key={idx}
+                className="bg-white rounded-lg overflow-hidden shadow-lg"
+              >
                 <div className="bg-gradient-to-br from-green-200 to-green-400 h-48 flex items-center justify-center text-6xl">
                   🌿
                 </div>
@@ -365,9 +474,13 @@ export default function GAPLandingPage() {
       {/* Final CTA */}
       <section className="py-16 bg-orange-500 text-white" id="contact-form">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-3xl sm:text-4xl font-bold mb-4">Ready to See Results Fast?</h3>
+          <h3 className="text-3xl sm:text-4xl font-bold mb-4">
+            Ready to See Results Fast?
+          </h3>
           <p className="text-xl mb-8">
-            We're a small, highly experienced local team — spots fill up quickly. Get your free on-site quote today and lock in our fall-season discounts.
+            We're a small, highly experienced local team — spots fill up
+            quickly. Get your free on-site quote today and lock in our
+            fall-season discounts.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -401,21 +514,29 @@ export default function GAPLandingPage() {
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
                   GAP
                 </div>
-                <span className="font-bold text-xl">GAP Landscaping & Irrigation</span>
+                <span className="font-bold text-xl">
+                  GAP Landscaping & Irrigation
+                </span>
               </div>
               <p className="text-gray-400">
-                Licensed • Insured • Trusted Locally for 30+ Years
+                Licensed  • Trusted Locally for 30+ Years
               </p>
             </div>
 
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
               <div className="space-y-2 text-gray-400">
-                <a href={`tel:${phone.replace(/[^0-9+]/g, "")}`} className="flex items-center gap-2 hover:text-white">
+                <a
+                  href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+                  className="flex items-center gap-2 hover:text-white"
+                >
                   <Phone size={16} />
                   {phone}
                 </a>
-                <a href={`mailto:${email}`} className="flex items-center gap-2 hover:text-white">
+                <a
+                  href={`mailto:${email}`}
+                  className="flex items-center gap-2 hover:text-white"
+                >
                   <Mail size={16} />
                   {email}
                 </a>
@@ -435,7 +556,10 @@ export default function GAPLandingPage() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-            <p>© {new Date().getFullYear()} GAP Landscaping & Irrigation. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} GAP Landscaping & Irrigation. All
+              rights reserved.
+            </p>
           </div>
         </div>
       </footer>
