@@ -1,11 +1,29 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Phone, Mail, MapPin, Check, MessageCircle } from "lucide-react";
 
 export default function GAPLandingPage() {
   const phone = "+1 (254) 300-8273";
   const email = "info@gaplandscaping.com";
+
+  // Google Ads conversion tracking function
+  useEffect(() => {
+    window.gtag_report_conversion = function(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      if (typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17714191591/47lFCKmp3McbEOe55P5B',
+          'event_callback': callback
+        });
+      }
+      return false;
+    };
+  }, []);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -34,6 +52,11 @@ export default function GAPLandingPage() {
       const data = await response.json();
 
       if (response.ok) {
+        // Track conversion
+        if (window.gtag_report_conversion) {
+          window.gtag_report_conversion();
+        }
+        
         setSubmitStatus({
           type: "success",
           message:
@@ -91,6 +114,7 @@ export default function GAPLandingPage() {
           </div>
           <a
             href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+            onClick={() => window.gtag_report_conversion && window.gtag_report_conversion()}
             className="flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
           >
             <Phone size={20} />
@@ -121,6 +145,7 @@ export default function GAPLandingPage() {
                     </p>
                     <a
                       href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+                      onClick={() => window.gtag_report_conversion && window.gtag_report_conversion()}
                       className="text-2xl font-bold text-green-600 hover:text-green-700"
                     >
                       {phone}
@@ -285,6 +310,7 @@ export default function GAPLandingPage() {
                 <p className="text-sm text-gray-600 mb-3">Or just call/text:</p>
                 <a
                   href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+                  onClick={() => window.gtag_report_conversion && window.gtag_report_conversion()}
                   className="inline-flex items-center gap-2 text-green-600 font-bold text-xl hover:text-green-700"
                 >
                   <Phone size={20} />
@@ -496,6 +522,7 @@ export default function GAPLandingPage() {
             </a>
             <a
               href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+              onClick={() => window.gtag_report_conversion && window.gtag_report_conversion()}
               className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
             >
               <Phone size={20} />
@@ -528,6 +555,7 @@ export default function GAPLandingPage() {
               <div className="space-y-2 text-gray-400">
                 <a
                   href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+                  onClick={() => window.gtag_report_conversion && window.gtag_report_conversion()}
                   className="flex items-center gap-2 hover:text-white"
                 >
                   <Phone size={16} />
